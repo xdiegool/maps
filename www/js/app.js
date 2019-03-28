@@ -1,17 +1,18 @@
-// Ionic Starter App
+
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
+// 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova','firebase','ngCordovaOauth', 'LocalStorageModule'])
 
-angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter.factories'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
-    if (window.cordova && window.cordova.plugins.Keyboard) {
+    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
 
@@ -23,105 +24,78 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
   });
 })
 
+// sets up the API URL
+.constant("appConfig", {
 
+     "FirebaseUrl": "https://uwi-test2.firebaseio.com"
+})
 
-.config(($stateProvider, $urlRouterProvider) => {
+.config(function($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
+
+  localStorageServiceProvider.setPrefix('bootcamp');
+
+  // Ionic uses AngularUI Router which uses the concept of states
+  // Learn more here: https://github.com/angular-ui/ui-router
+  // Set up the various states which the app can be in.
+  // Each state's controller can be found in controllers.js
   $stateProvider
 
-  .state('auth', {
-    url: '/auth',
-    abstract: true,
-    templateUrl: 'templates/auth.html',
-    controller: ''
-  })
-  .state('auth.login', {
+  .state('login', {
     url: '/login',
-    views: {
-      'authContent': {
-        templateUrl: 'templates/login.html',
-        controller: 'AuthCtrl'
-      }
-    }
+    templateUrl: "templates/login.html",
+    controller: 'LoginCtrl'
   })
-  .state('map', {
+
+  // setup an abstract state for the tabs directive
+  .state('tab', {
+    url: '/tab',
+    abstract: true,
+    templateUrl: 'templates/tabs.html'
+  })
+
+  // Each tab has its own nav history stack:
+
+  .state('tab.map', {
     url: '/map',
-    abstract: true,
-    templateUrl: 'templates/mapView.html',
-    controller: ''
-  })
-  .state('map.nameit', {
-    url: '/nameit',
     views: {
-      'mapContent': {
-        templateUrl: 'templates/nameit.html',
-        controller: 'NameitCtrl'
+      'tab-map': {
+        templateUrl: 'templates/tab-map.html',
+        controller: 'MapCtrl'
       }
     }
   })
-  .state('map.view', {
-    url: '/view/:trip',
-    views: {
-      'mapContent': {
-        templateUrl: 'templates/map.html',
-        controller: 'GoogleMapCtrl',
-        params: { trip: null }
-      }
-    }
-  })
-    .state('app', {
-    url: '/app',
-    abstract: true,
-    templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
-  })
-  .state('app.trips', {
-    url: '/trips',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/trips.html',
-        controller: 'TripsCtrl'
-      }
-    }
-  })
-  .state('app.curTrip', {
-      url: '/trips/:trip',
+
+  .state('tab.points', {
+      url: '/points',
       views: {
-        'menuContent': {
-          templateUrl: 'templates/curTrip.html',
-          controller: 'CurTripCtrl'
+        'tab-points': {
+          templateUrl: 'templates/tab-points.html',
+          controller: 'PointsCtrl'
+        }
+      }
+    })
+    .state('tab.point-info', {
+      url: '/points/:pointId',
+      views: {
+        'tab-points': {
+          templateUrl: 'templates/point-info.html',
+          controller: 'PointInfoCtrl'
         }
       }
     })
 
-  .state('app.spots', {
-    url: '/trips/:trip/spots',
+  .state('tab.account', {
+    url: '/account',
     views: {
-      'menuContent': {
-        templateUrl: 'templates/spots.html',
-        controller: 'SpotCtrl'
-      },
-    params: { trip: null }
-    }
-  })
-  .state('app.info', {
-    url: '/trips/:trip/info',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/info.html',
-        controller: 'InfoCtrl'
+      'tab-account': {
+        templateUrl: 'templates/tab-account.html',
+        controller: 'AccountCtrl'
       }
     }
-  })
-  .state('app.fav', {
-    url: '/trips/:trip/fav-spots',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/fav.html',
-        controller: 'FavCtrl'
-      }
-    }
-  })
+  });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/auth/login');
+  // $urlRouterProvider.otherwise('login');
+  $urlRouterProvider.otherwise('tab/map');
+
 });
