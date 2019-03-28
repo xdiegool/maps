@@ -1,0 +1,57 @@
+<ion-view view-title="{{currentTrip}}">
+  <ion-content>
+
+    <ion-header-bar class="bar-light">
+      <div class="buttons">
+        <button class="button button-icon icon ion-ios-minus-outline"
+        ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
+      </div>
+      <h1 class="title" id="spots-header">Spots</h1>
+      <div class="buttons">
+        <button class="button" ng-click="data.showDelete = false; data.showReorder = !data.showReorder">
+          <i class="icon ion-drag"></i>
+        </button>
+      </div>
+    </ion-header-bar>
+
+    <div class="spots-list">
+
+      <ion-list class="spots-list" show-delete="data.showDelete" show-reorder="data.showReorder">
+        <ion-item ng-repeat="item in dest" ng-if="item.trip === currentTrip" class="item-remove-animate item item-text-wrap">
+          {{item.travelTime}} hrs - {{item.name}} - {{item.destTime}} hrs
+          <ion-delete-button class="ion-minus-circled"
+          ng-click="onItemDelete(item, item.key)">
+        </ion-delete-button>
+        <ion-option-button class="button-energized add-to-fav" ng-click="addToFav(item)" ng-disabled="flag">
+          <button class="button button-icon icon ion-flag custom-icon"> </button>
+
+        </ion-option-button>
+        <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+      </ion-item>
+    </ion-list>
+
+    </div>
+
+
+    <div class="nav-btns-spots">
+      <a href="#/app/trips/{{currentTrip}}/fav-spots"><i class="button button-icon icon ion-flag "></i></a>
+      <a href="#/app/trips/{{currentTrip}}/info"><i class="button button-icon icon ion-ios-information-outline "></i></a>
+      <a ng-click="addAnotherSpot()"><i class="button button-icon icon ion-map "></i></a>
+
+    </div>
+
+    <div class="item item-divider">
+      Day Summary
+    </div>
+    <div class="item item-text-wrap">
+      Travel Time : {{totalTrav}} hrs
+    </div>
+    <div class="item item-text-wrap">
+      Destination Time : {{totalDest}} hrs
+    </div>
+    <div class="item item-divider day-summery">
+
+    </div>
+
+  </ion-content>
+</ion-view>

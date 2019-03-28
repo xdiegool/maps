@@ -1,0 +1,237 @@
+/* Empty. Add your own CSS if you like */
+.title {
+  font-family: 'Permanent Marker', cursive;
+
+}
+
+ion-nav-view,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  font-family: 'Heebo', sans-serif;
+  color: #444;
+}
+
+div > * {
+  vertical-align: middle;
+}
+
+a {
+  font-family: 'Heebo', sans-serif;
+  text-decoration: none;
+  color: #27B1BB;
+  font-size: 1.3em;
+}
+
+.custom-icon {
+  color: white;
+  font-size: 5px;
+}
+
+
+.ion-ios-close-empty {
+  padding: 0;
+  margin-top: -10px;
+  float: right;
+}
+
+.scroll {
+    height: 100%;
+}
+
+#map {
+  width: 100%;
+  height: 88.5%;
+}
+
+
+.btn {
+  border-radius: 5px;
+  background-color: #ffc900;
+  color: white;
+  border: 1px solid white;
+  height: 27px;
+  width: 70px;
+  margin: 0 8%;
+
+}
+
+.see-day-btn {
+  visibility: hidden;
+}
+
+.clear-search {
+  margin: 0 54px;
+}
+
+.nav-btns-spots {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 15px 45px 9px;
+
+}
+.button {
+  font-family: 'Heebo', sans-serif;
+
+}
+
+.cur-trp-links > * {
+  display: flex;
+  justify-content: space-between;
+}
+
+.savePlaceInfo {
+  border-radius: 50%;
+  background-color: #ffc900;
+  color: white;
+  border: 5px solid white;
+  height: 37px;
+  width: 12px;
+  margin: 0 8%;
+  font-size: 1.5em;
+  padding: 0 16px 0 11px;
+  font-family: serif
+}
+
+.yellow-icon {
+  color: #ffc900;
+  font-size: 1.7em;
+}
+
+
+.loc-adr {
+  display: flex;
+  padding: 10px;
+  vertical-align: middle;
+}
+.loc-adr > * {
+  margin-right: 20px;
+}
+
+.bottom-links {
+  text-align: center;
+}
+
+
+.trips-header {
+  display: flex;
+  justify-content: space-between;
+}
+.trips-header > * {
+  vertical-align: middle;
+}
+
+
+.logout-btn {
+  background-color: #27B1BB;
+  color: #ffc900;
+}
+
+.profile-item {
+  text-align: center;
+  padding: 0;
+}
+
+.profile-picture {
+  padding: 1px;
+  border-radius: 100%;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  margin: auto;
+  width: 175px;
+  height: 175px;
+  /*overflow: hidden;*/
+}
+
+.profile-picture img {
+  width: 175px;
+  border-radius: 100%;
+}
+
+.profile-name {
+  padding-top: 20px;
+  font-size: x-large !important;
+  font-weight: bold !important;
+  text-transform: capitalize;
+}
+
+
+.nameit-card {
+  margin-top: 35%;
+}
+
+.create-today-div {
+  padding: 0;
+}
+
+.nameit-form {
+  margin-bottom: 0;
+}
+
+#nameit-input {
+  height: 50px;
+  width: 100%;
+  font-size: 25px;
+  font-family: 'Permanent Marker', cursive;
+  text-align: center;
+  color: #444;
+}
+
+.nameit-btn {
+  height: 50px;
+  width: 50px;
+  font-size: 15px;
+}
+
+.item-complex {
+  padding: 3px;
+}
+
+.spots-list {
+  padding: 20% 0 0 0;
+}
+
+.day-summery {
+  padding: 0 0 20% 0;
+  background-color: white;
+}
+
+#title-header-login {
+  font-size: 4em;
+  font-family: 'Permanent Marker', cursive;
+  color: #ffc900;
+  margin: 2% 0 0;
+}
+#title-header-logout {
+  font-family: 'Permanent Marker', cursive;
+  color: #ffc900;
+  margin: 7%;
+
+}
+
+.login-btn-div {
+  padding: 0 3%;
+}
+
+.logout-modal-div {
+  text-align: center;
+  padding: 3%;
+}
+
+#spots-header {
+  font-family: 'Heebo', sans-serif;
+  font-size: 1.4em;
+}
+
+.input-label {
+  text-align: left;
+}
+
+#nameit-bkgrd {
+  background: linear-gradient(145deg, #fff6d5 1%, #27BBAB 99%); /* Standard syntax */
+}

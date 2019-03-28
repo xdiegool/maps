@@ -1,0 +1,49 @@
+<ion-view view-title="Create A Day">
+  <ion-content>
+
+
+    <form class="list" name="create-a-day" ng-submit="createForm()">
+
+      <label class="item item-input">
+        <input ng-model="day.city" type="text" required ng-minlength="3" placeholder="City">
+      </label>
+      <label class="item item-input">
+        <input ng-model="day.destination" type="text" required ng-minlength="3" placeholder="Destination">
+      </label>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Travel Time (hr)
+        </div>
+        <select ng-model="day.travelTime" required>
+          <option></option>
+          <option>0.5</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </label>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Dest Time (hr)
+        </div>
+        <select ng-model="day.destTime" required>
+          <option></option>
+          <option>0.5</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </label>
+
+      <button class="button button-block button-energized" ng-disabled="credentialsForm.$invalid" > Add </button>
+      <button class="button button-block button-energized" ng-click="goToDay()" ng-if="viewDay" >See Your Day</button>
+    </form>
+
+  </ion-content>
+</ion-view>

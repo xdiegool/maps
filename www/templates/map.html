@@ -1,0 +1,18 @@
+<ion-view view-title="Map">
+
+    <ion-content>
+
+      <div class="bar bar-header item-input-inset">
+        <label class="item-input-wrapper">
+          <i class="icon ion-ios-search placeholder-icon"></i>
+          <div disabletap>
+            <input id="autocomplete" type="search" placeholder="{{currentTrip}}" ng-focus="disableTap()">
+          </div>
+        </label>
+        <a class="button button-energized clear-search" ng-click="clearSearchField()">clear</a>
+        <a class="button button-dark" ng-click="goToMenu()">spots</a>
+      </div>
+
+      <div id="map" data-tap-disabled="true"></div>
+    </ion-content>
+</ion-view>

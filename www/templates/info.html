@@ -1,0 +1,21 @@
+<ion-view view-title="Day Info">
+  <ion-content>
+
+      <form class="item item-input-inset" name="trip-info" ng-submit="addInfo()">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="Add Info" ng-model="obj.details" id="infoInput" ng-minlength="2" required >
+        </label>
+        <button tpye="submit" class="button button-small button-energized" >
+          Add
+        </button>
+      </form>
+      <div class="card">
+        <div class="item item-text-wrap" ng-repeat="(k, v) in data" ng-if="currentTrip === v.trip">
+          {{v.details}}
+          <button class="button button-icon icon ion-ios-close-empty" ng-click="removeInfoNote(k)"></button>
+        </div>
+
+      </div>
+
+  </ion-content>
+</ion-view>
